@@ -21,6 +21,10 @@ function renderHeader() {
             <a href="#" class="logo">${logo}</a>
             <ul class="nav-links" id="site-nav">${navItemsHtml}
             </ul>
+            <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle theme">
+                <i class="fas fa-moon"></i>
+                <i class="fas fa-sun"></i>
+            </button>
             <button class="burger" type="button" aria-label="Toggle navigation" aria-expanded="false" aria-controls="site-nav">
                 <div class="line1"></div>
                 <div class="line2"></div>
@@ -45,7 +49,7 @@ function renderHero() {
 }
 
 function renderAbout() {
-    const { title, profileImage, introParagraphs, accordions } = siteContent.about;
+    const { title, profileImage, introParagraphs, accordions, skills } = siteContent.about;
 
     const introHtml = introParagraphs.map(text => `<p>${text}</p>`).join('\n            ');
 
@@ -62,10 +66,26 @@ function renderAbout() {
     <section id="about" class="fade-in-section">
         <h2>${title}</h2>
         <div class="about-content">
-            <img src="${profileImage.src}" alt="${profileImage.alt}" class="profile-pic">
+            <img src="${profileImage.src}" alt="${profileImage.alt}" class="profile-pic" loading="lazy">
             ${introHtml}
 
             ${accordionsHtml}
+
+            <div class="skills-section" id="skillsSection">
+                <h3>Skills</h3>
+                <div class="skills-grid">
+                    ${skills.map(s => `
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span class="skill-name">${s.name}</span>
+                            <span class="skill-level">${s.level}%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-fill" style="--skill-level: ${s.level}%"></div>
+                        </div>
+                    </div>`).join('')}
+                </div>
+            </div>
 
         </div>
     </section>`;
@@ -77,7 +97,7 @@ function renderInterests() {
 
     const cardsHtml = shuffledItems.map(({ image, alt, title: cardTitle, description }) => `
             <div class="interest-card">
-                <img src="${image}" alt="${alt}" class="interest-thumbnail">
+                <img src="${image}" alt="${alt}" class="interest-thumbnail" loading="lazy" decoding="async">
                 <div class="interest-card-content">
                     <h3>${cardTitle}</h3>
                     <p>${description}</p>

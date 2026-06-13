@@ -35,6 +35,40 @@
     --radius-full: 999px;
 }
 
+/* Light theme */
+[data-theme="light"] {
+    --primary-color: #4a7ddb;
+    --primary-glow: rgba(74, 125, 219, 0.2);
+    --secondary-color: #5a6577;
+    --accent-color: #0ea5a0;
+    --accent-glow: rgba(14, 165, 160, 0.15);
+
+    --text-color: #1e2230;
+    --main-bg: #f0f2f6;
+    --section-bg-odd: rgba(255, 255, 255, 0.7);
+    --section-bg-even: rgba(245, 247, 250, 0.7);
+    --card-bg: rgba(255, 255, 255, 0.65);
+    --header-footer-bg: rgba(255, 255, 255, 0.78);
+
+    --glass-bg: rgba(255, 255, 255, 0.55);
+    --glass-bg-strong: rgba(255, 255, 255, 0.88);
+    --glass-border: rgba(0, 0, 0, 0.1);
+    --glass-border-hover: rgba(74, 125, 219, 0.3);
+    --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.6);
+
+    --button-hover-shadow: rgba(74, 125, 219, 0.15);
+    --box-shadow-light: rgba(0, 0, 0, 0.08);
+    --box-shadow-dark: rgba(0, 0, 0, 0.12);
+}
+
+[data-theme="light"] body {
+    background-image:
+        radial-gradient(circle at 10% 20%, rgba(0, 0, 0, 0.04) 1px, transparent 0),
+        radial-gradient(circle at 70% 80%, rgba(0, 0, 0, 0.03) 1px, transparent 0),
+        radial-gradient(circle at 40% 50%, rgba(0, 0, 0, 0.025) 0.8px, transparent 0),
+        linear-gradient(160deg, #e8ebf0 0%, #f0f2f6 45%, #e5e8ee 100%);
+}
+
 /* Ambient animated background orbs */
 .ambient-bg {
     position: fixed;
@@ -145,6 +179,17 @@ a {
 
 a:hover {
     color: var(--accent-color);
+}
+
+:focus-visible {
+    outline: 2px solid var(--accent-color);
+    outline-offset: 2px;
+}
+
+button:focus-visible {
+    outline: 2px solid var(--accent-color);
+    outline-offset: 2px;
+    border-radius: var(--radius-sm);
 }
 
 /* Header & Navigation — glass */
@@ -261,6 +306,90 @@ body.nav-open {
     margin: 5px;
     transition: all 0.3s ease;
     border-radius: 2px;
+}
+
+/* Theme Toggle */
+.theme-toggle {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 1.15rem;
+    padding: 8px;
+    color: var(--text-color);
+    transition: color 0.3s ease, transform 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 44px;
+    min-height: 44px;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.theme-toggle:hover {
+    color: var(--accent-color);
+    transform: rotate(20deg) scale(1.1);
+}
+
+.theme-toggle .fa-sun { display: none; }
+
+[data-theme="light"] .theme-toggle .fa-sun { display: inline; }
+[data-theme="light"] .theme-toggle .fa-moon { display: none; }
+
+/* Skills Section */
+.skills-section {
+    margin-top: 40px;
+    width: 100%;
+    max-width: 700px;
+    text-align: left;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.skills-section h3 {
+    font-size: 1.4rem;
+    margin-bottom: 24px;
+    text-align: center;
+    color: var(--primary-color);
+}
+
+.skill-item {
+    margin-bottom: 18px;
+}
+
+.skill-info {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 6px;
+}
+
+.skill-name {
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.skill-level {
+    font-size: 0.85rem;
+    color: var(--secondary-color);
+    font-weight: 600;
+}
+
+.skill-bar {
+    height: 8px;
+    background: rgba(128, 128, 128, 0.15);
+    border-radius: var(--radius-full);
+    overflow: hidden;
+}
+
+.skill-fill {
+    height: 100%;
+    border-radius: var(--radius-full);
+    background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+    width: 0;
+    transition: width 1s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.skills-visible .skill-fill {
+    width: var(--skill-level);
 }
 
 /* Main Sections */
@@ -517,6 +646,7 @@ h2.typewriter, p.typewriter { /* Apply to h2 and p elements with the class */
     cursor: pointer;
     opacity: 0;
     transform: translateY(24px);
+    will-change: transform, opacity;
 }
 
 .fade-in-section.is-visible .interest-card {
@@ -947,6 +1077,13 @@ footer {
         color: var(--accent-color);
     }
 
+    .theme-toggle {
+        font-size: 1rem;
+        padding: 6px;
+        min-width: 40px;
+        min-height: 40px;
+    }
+
     .burger {
         display: flex;
         flex-direction: column;
@@ -955,7 +1092,7 @@ footer {
     }
 
     .burger.toggle .line1 {
-        transform: rotate(-45deg) translate(-5px, 6px);
+        transform: rotate(-45deg) translate(0, 13px);
     }
 
     .burger.toggle .line2 {
@@ -963,7 +1100,7 @@ footer {
     }
 
     .burger.toggle .line3 {
-        transform: rotate(45deg) translate(-5px, -6px);
+        transform: rotate(45deg) translate(0, -13px);
     }
 
     #hero {
@@ -1214,6 +1351,6 @@ footer {
     .lightbox-caption,
     .close-btn,
     .nav-links {
-        background: rgba(22, 28, 40, 0.95);
+        background: var(--glass-bg-strong);
     }
 }

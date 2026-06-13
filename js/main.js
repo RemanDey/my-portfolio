@@ -11,6 +11,23 @@ document.addEventListener('DOMContentLoaded', () => {
 
     renderPage();
 
+    /* Theme toggle */
+    const themeToggle = document.getElementById('themeToggle');
+    const html = document.documentElement;
+    const storedTheme = localStorage.getItem('theme');
+    if (storedTheme) {
+        html.setAttribute('data-theme', storedTheme);
+    } else if (window.matchMedia('(prefers-color-scheme: light)').matches) {
+        html.setAttribute('data-theme', 'light');
+    }
+    if (themeToggle) {
+        themeToggle.addEventListener('click', () => {
+            const next = html.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+            html.setAttribute('data-theme', next);
+            localStorage.setItem('theme', next);
+        });
+    }
+
     initScrollEffects();
     initAccordion();
     initLightbox();

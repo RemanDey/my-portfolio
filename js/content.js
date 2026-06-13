@@ -115,6 +115,17 @@ export const siteContent = {
                 `,
             },
         ],
+
+        skills: [
+            { name: 'Python', level: 90 },
+            { name: 'C / C++', level: 85 },
+            { name: 'JavaScript', level: 75 },
+            { name: 'HTML / CSS', level: 80 },
+            { name: 'Robotics & Hardware', level: 85 },
+            { name: 'Circuit Design', level: 75 },
+            { name: 'Problem Solving', level: 92 },
+            { name: 'Physics & Mathematics', level: 88 },
+        ],
     },
 
     interests: {
@@ -173,6 +184,24 @@ export const siteContent = {
                 alt: 'Terrain segmentation app',
                 title: 'Terrain Segmentation App',
                 description: 'An application that segments and classifies terrain from imagery, applying computer vision techniques to distinguish land cover types for analysis and mapping.',
+            },
+            {
+                image: 'images/profile.jpg',
+                alt: 'Lunar XRF Dashboard - geochemical data analysis for lunar surface',
+                title: 'Lunar Surface Analyzer',
+                description: 'A geochemical data ingestion dashboard built for the STAC competition. Upload real XRF CSV files or generate synthetic lunar mission data to explore elemental signatures (Al, Si, Fe, Ca, Mg, Ti, etc.) across the lunar surface. Features interactive dashboards with filtering, statistical analysis, and customizable Plotly charts — all with a dark space-themed glass-morphism UI. Built with Flask, Pandas, NumPy, Plotly, and Tailwind CSS. <a href="https://stac-software.onrender.com/">Explore the Dashboard</a>',
+            },
+            {
+                image: 'https://chatbot-josaa-iitmandi.onrender.com/static/logo.svg',
+                alt: 'JoSAAssist - AI-powered JoSAA counselling chatbot',
+                title: 'JoSAAssist',
+                description: 'An AI-powered conversational assistant for JoSAA counselling at IIT Mandi. Built with a Python/Flask backend and a Retrieval-Augmented Generation (RAG) pipeline using Groq for LLM inference with OpenRouter as fallback. Supports web chat, WhatsApp (via Twilio), and Telegram — providing instant answers about seat allocation, eligibility, branch preferences, and fee structures from real counselling data. <a href="https://chatbot-josaa-iitmandi.onrender.com/">Try JoSAAssist</a>',
+            },
+            {
+                image: 'images/interest5.png',
+                alt: 'Robosoccer bot - autonomous soccer-playing robot',
+                title: 'Robosoccer Bot',
+                description: 'An autonomous robot designed for soccer competitions. Combines a custom mechanical chassis with embedded control systems, motor drivers, and sensor integration for real-time ball tracking and opponent detection. Implements decision-making algorithms for offensive and defensive play, demonstrating practical applications of robotics, control theory, and embedded systems.',
             },
         ],
     },
