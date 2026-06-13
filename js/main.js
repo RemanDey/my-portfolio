@@ -4,6 +4,7 @@ import { initScrollEffects } from './modules/scroll-effects.js';
 import { initAccordion } from './modules/accordion.js';
 import { initLightbox } from './modules/lightbox.js';
 import { initNavigation } from './modules/navigation.js';
+import { initInteractions } from './modules/interactions.js';
 
 document.addEventListener('DOMContentLoaded', () => {
     document.title = siteContent.meta.title;
@@ -32,4 +33,5 @@ document.addEventListener('DOMContentLoaded', () => {
     initAccordion();
     initLightbox();
     initNavigation();
+    initInteractions();
 });
