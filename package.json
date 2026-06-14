@@ -1,0 +1,27 @@
+{
+  "name": "my-portfolio",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "optimize-images": "node scripts/optimize-images.mjs",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/remandey/my-portfolio.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/remandey/my-portfolio/issues"
+  },
+  "homepage": "https://github.com/remandey/my-portfolio#readme",
+  "devDependencies": {
+    "csso": "^5.0.5",
+    "sharp": "^0.35.1",
+    "terser": "^5.48.0"
+  }
+}
